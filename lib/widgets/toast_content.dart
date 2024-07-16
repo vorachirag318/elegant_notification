@@ -36,22 +36,9 @@ class ToastContent extends StatelessWidget {
       children: [
         Padding(
           padding: isRtl
-              ? const EdgeInsets.only(right: horizontalComponentPadding)
-              : const EdgeInsets.only(left: horizontalComponentPadding),
+              ? const EdgeInsets.only(right: 8)
+              : const EdgeInsets.only(left: 10),
           child: _getNotificationIcon(),
-        ),
-        const SizedBox(
-          width: 15,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 20,
-            bottom: 20,
-          ),
-          child: Container(
-            width: 1,
-            color: greyColor,
-          ),
         ),
         const SizedBox(
           width: 15,
@@ -99,7 +86,7 @@ class ToastContent extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.close,
-                        color: Colors.grey,
+                        color: Colors.white,
                         size: 15,
                       ),
                     ],
