@@ -87,7 +87,7 @@ class ToastContent extends StatelessWidget {
                       Icon(
                         Icons.close,
                         color: Colors.white,
-                        size: 15,
+                        size: 20,
                       ),
                     ],
                   ),
