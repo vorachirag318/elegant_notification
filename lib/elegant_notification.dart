@@ -487,6 +487,9 @@ class ElegantNotification extends StatefulWidget {
           left: alignmentToLeftPos(context) +
               (stackedOptions?.itemOffset.dx ?? 0) *
                   (stackOverlaysLength - 1 - stackedItemPosition),
+          right: alignmentToLeftPos(context) +
+              (stackedOptions?.itemOffset.dx ?? 0) *
+                  (stackOverlaysLength - 1 - stackedItemPosition),
           top: alignmentToTopPos(context) + getTopPos(context),
           child: AnimatedScale(
             duration: const Duration(
@@ -635,7 +638,7 @@ class ElegantNotificationState extends State<ElegantNotification>
         child: InkWell(
           onTap: widget.onNotificationPressed,
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: MediaQuery.of(context).size.width,
             height: widget.height ?? MediaQuery.of(context).size.height * 0.12,
             decoration: BoxDecoration(
               borderRadius: widget.borderRadius ?? BorderRadius.circular(5.0),
