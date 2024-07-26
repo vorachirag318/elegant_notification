@@ -635,7 +635,7 @@ class ElegantNotificationState extends State<ElegantNotification>
         child: InkWell(
           onTap: widget.onNotificationPressed,
           child: Container(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width * 0.8,
             height: widget.height ?? MediaQuery.of(context).size.height * 0.12,
             decoration: BoxDecoration(
               borderRadius: widget.borderRadius ?? BorderRadius.circular(5.0),
