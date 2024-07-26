@@ -621,66 +621,62 @@ class ElegantNotificationState extends State<ElegantNotification>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: SlideTransition(
-        position: widget._offsetAnimation,
-        child: Dismissible(
-          key: widget.uniqueKey,
-          direction: widget.isDismissable
-              ? widget.dismissDirection
-              : DismissDirection.none,
-          onDismissed: (direction) {
-            widget.onDismiss?.call();
-            widget.closeOverlay();
-          },
-          child: InkWell(
-            onTap: widget.onNotificationPressed,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height:
-                  widget.height ?? MediaQuery.of(context).size.height * 0.12,
-              decoration: BoxDecoration(
-                borderRadius: widget.borderRadius ?? BorderRadius.circular(5.0),
-                border: widget.border,
-                color: widget.background,
-                boxShadow: [
-                  widget.shadow ?? const BoxShadow(),
-                ],
-              ),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: ToastContent(
-                      title: widget.title,
-                      description: widget.description,
-                      notificationType: widget._notificationType,
-                      icon: widget.icon,
-                      displayCloseButton: widget.onNotificationPressed == null
-                          ? widget.displayCloseButton
-                          : false,
-                      closeButton: widget.closeButton,
-                      onCloseButtonPressed: closeNotification,
-                      iconSize: widget.iconSize,
-                      action: widget.action,
-                    ),
+    return SlideTransition(
+      position: widget._offsetAnimation,
+      child: Dismissible(
+        key: widget.uniqueKey,
+        direction: widget.isDismissable
+            ? widget.dismissDirection
+            : DismissDirection.none,
+        onDismissed: (direction) {
+          widget.onDismiss?.call();
+          widget.closeOverlay();
+        },
+        child: InkWell(
+          onTap: widget.onNotificationPressed,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: widget.height ?? MediaQuery.of(context).size.height * 0.12,
+            decoration: BoxDecoration(
+              borderRadius: widget.borderRadius ?? BorderRadius.circular(5.0),
+              border: widget.border,
+              color: widget.background,
+              boxShadow: [
+                widget.shadow ?? const BoxShadow(),
+              ],
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ToastContent(
+                    title: widget.title,
+                    description: widget.description,
+                    notificationType: widget._notificationType,
+                    icon: widget.icon,
+                    displayCloseButton: widget.onNotificationPressed == null
+                        ? widget.displayCloseButton
+                        : false,
+                    closeButton: widget.closeButton,
+                    onCloseButtonPressed: closeNotification,
+                    iconSize: widget.iconSize,
+                    action: widget.action,
                   ),
-                  if (widget.showProgressIndicator)
-                    Padding(
-                      padding:
-                          widget.progressBarPadding ?? const EdgeInsets.all(0),
-                      child: SizedBox(
-                        width: widget.progressBarWidth,
-                        height: widget.progressBarHeight,
-                        child: AnimatedProgressBar(
-                          foregroundColor: widget.progressIndicatorColor,
-                          duration: widget.toastDuration,
-                          backgroundColor: widget.progressIndicatorBackground,
-                        ),
+                ),
+                if (widget.showProgressIndicator)
+                  Padding(
+                    padding:
+                        widget.progressBarPadding ?? const EdgeInsets.all(0),
+                    child: SizedBox(
+                      width: widget.progressBarWidth,
+                      height: widget.progressBarHeight,
+                      child: AnimatedProgressBar(
+                        foregroundColor: widget.progressIndicatorColor,
+                        duration: widget.toastDuration,
+                        backgroundColor: widget.progressIndicatorBackground,
                       ),
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
           ),
         ),
