@@ -487,9 +487,6 @@ class ElegantNotification extends StatefulWidget {
           left: alignmentToLeftPos(context) +
               (stackedOptions?.itemOffset.dx ?? 0) *
                   (stackOverlaysLength - 1 - stackedItemPosition),
-          right: alignmentToLeftPos(context) +
-              (stackedOptions?.itemOffset.dx ?? 0) *
-                  (stackOverlaysLength - 1 - stackedItemPosition),
           top: alignmentToTopPos(context) + getTopPos(context),
           child: AnimatedScale(
             duration: const Duration(
