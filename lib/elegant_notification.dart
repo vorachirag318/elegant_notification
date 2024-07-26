@@ -636,6 +636,7 @@ class ElegantNotificationState extends State<ElegantNotification>
           onTap: widget.onNotificationPressed,
           child: Container(
             width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             height: widget.height ?? MediaQuery.of(context).size.height * 0.12,
             decoration: BoxDecoration(
               borderRadius: widget.borderRadius ?? BorderRadius.circular(5.0),
